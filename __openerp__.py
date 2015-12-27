@@ -25,10 +25,12 @@
         "author" : "Bachaco-ve",
         "website" : "http://www.bachaco.org.ve",
         "category" : "Desconocida",
-        "description": """Registro de Pasantes para empresas """,
-        "depends" : ['base'],
+        "description": """Registro de Pasantes para empresas. """,
+        "depends" : ['base','base_setup'],
+        'data': [
+                'fndpasantias_view.xml', 
+                'security/ir.model.access.csv'],
         "init_xml" : [ ],
         "demo_xml" : [ ],
-        "update_xml" : ['fndpasantias_view.xml', 'security/ir.model.access.csv'],
         "installable": True
 }

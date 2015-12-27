@@ -478,7 +478,7 @@
 								<field name="semana_prorroga" select="0"/>
 								<field name="turno_prorroga" select="0"/>
 								<field name="condicion_registro" select="0"/>
-								<se 																			parator string="'Observacion de prorroga'" colspan="4"/>
+								<separator string="'Observacion de prorroga'" colspan="4"/>
 								<field name="observaciones_prorroga" colspan="4" nolabel="1" select="0"/>
 
 							</group>
