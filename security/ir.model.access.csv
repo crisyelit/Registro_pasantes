@@ -1,0 +1,16 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_fnd_pas_tipos_alergias","fnd.pas.tipos_alergias","model_fnd_pas_tipos_alergias","base.group_user",1,0,0,0
+"access_fnd_pas_beneficiarios","fnd.pas.beneficiarios","model_fnd_pas_beneficiarios","base.group_user",1,0,0,0
+"access_fnd_pas_convenios","fnd.pas.convenios","model_fnd_pas_convenios","base.group_user",1,0,0,0
+"access_fnd_pas_promotores","fnd.pas.promotores","model_fnd_pas_promotores","base.group_user",1,0,0,0
+"access_fnd_pas_tipo_especialidades","fnd.pas.tipo_especialidades","model_fnd_pas_tipo_especialidades","base.group_user",1,0,0,0
+"access_fnd_pas_instituciones","fnd.pas.instituciones","model_fnd_pas_instituciones","base.group_user",1,0,0,0
+"access_fnd_pas_nivel_academico","fnd.pas.nivel_academico","model_fnd_pas_nivel_academico","base.group_user",1,0,0,0
+"access_fnd_pas_parentescos","fnd.pas.parentescos","model_fnd_pas_parentescos","base.group_user",1,0,0,0
+"access_fnd_pas_turnos","fnd.pas.turnos","model_fnd_pas_turnos","base.group_user",1,0,0,0
+"access_fnd_pas_tipos_pasantias","fnd.pas.tipos_pasantias","model_fnd_pas_tipos_pasantias","base.group_user",1,0,0,0
+"access_fnd_pas_pasantes","fnd.pas.pasantes","model_fnd_pas_pasantes","base.group_user",1,0,0,0
+"access_fnd_pas_pasantias","fnd.pas.pasantias","model_fnd_pas_pasantias","base.group_user",1,0,0,0
+"access_fnd_pas_condicion_nofirmante","fnd.pas.condicion_nofirmante","model_fnd_pas_condicion_nofirmante","base.group_user",1,0,0,0
+"access_fnd_pas_condicion_registro","fnd.pas.condicion_registro","model_fnd_pas_condicion_registro","base.group_user",1,0,0,0
+"access_fnd_pas_tipos_instituciones","fnd.pas.tipos_instituciones","model_fnd_pas_tipos_instituciones","base.group_user",1,0,0,0

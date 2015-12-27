@@ -1,0 +1,635 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+<menuitem name="Sistema de Pansantias" id="menu_principal_horizontal" sequence="3"/>
+<menuitem name="Gestión Sistema de Pansantias" id="menu_principal_vertical" parent="menu_principal_horizontal" sequence="3" />
+<menuitem name="Configuracion de Sistema de Pasantias" id="menu_segundario_vertical" parent="menu_principal_horizontal" sequence="3" />
+ 
+  
+    <record model="ir.ui.view" id="view_fnd_pas_tipos_alergias_form">
+        <field name="name">fnd.pas.tipos_alergias.form</field>
+        <field name="model">fnd.pas.tipos_alergias</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.tipos_alergias">
+            <group col="4" colspan="2">
+                <field name="codigo" select="1"/>
+                <field name="tipo_alergia" select="2"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_tipos_alergias_tree">
+        <field name="name">fnd.pas.tipos_alergias.tree</field>
+        <field name="model">fnd.pas.tipos_alergias</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.tipos_alergias">
+                <field name="codigo"/>
+                <field name="tipo_alergia"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_tipos_alergias">
+        <field name="name">Tipos de Alergias</field>
+        <field name="res_model">fnd.pas.tipos_alergias</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Tipos de Alergias" id="menu_fnd_pas_tipos_alergias" parent="menu_segundario_vertical" action="action_fnd_pas_tipos_alergias"/>
+
+        
+    <record model="ir.ui.view" id="view_fnd_pas_beneficiarios_form">
+        <field name="name">fnd.pas.beneficiarios.form</field>
+        <field name="model">fnd.pas.beneficiarios</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.beneficiarios">
+            <group col="4" colspan="2">
+                <field name="pasantia_id" select="1"/>
+                <field name="nombre_beneficiario" select="2"/>
+                <field name="apellido_beneficiario" select="0"/>
+                <field name="parentesco_beneficiario" select="0"/>
+                <field name="porcentaje" select="0"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_beneficiarios_tree">
+        <field name="name">fnd.pas.beneficiarios.tree</field>
+        <field name="model">fnd.pas.beneficiarios</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.beneficiarios">
+                <field name="pasantia_id"/>
+                <field name="nombre_beneficiario"/>
+                <field name="apellido_beneficiario"/>
+                <field name="parentesco_beneficiario"/>
+                <field name="porcentaje"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_beneficiarios">
+        <field name="name">Registro Maestro de Beneficiarios</field>
+        <field name="res_model">fnd.pas.beneficiarios</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Registro Maestro de Beneficiarios" id="menu_fnd_pas_beneficiarios" parent="menu_principal_vertical" action="action_fnd_pas_beneficiarios"/>
+
+        
+    <record model="ir.ui.view" id="view_fnd_pas_convenios_form">
+        <field name="name">fnd.pas.convenios.form</field>
+        <field name="model">fnd.pas.convenios</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.convenios">
+            <group col="4" colspan="2">
+                <field name="codigo" select="1"/>
+                <field name="empresa_id" select="2"/>
+                <separator string="'Pasantias'" colspan="4"/>
+                <field name="pasantias_ids" colspan="4" nolabel="1" select="0"/>
+                <field name="fecha_inicio" select="0"/>
+                <field name="fecha_final" select="0"/>
+                <field name="promotor_id" select="0"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_convenios_tree">
+        <field name="name">fnd.pas.convenios.tree</field>
+        <field name="model">fnd.pas.convenios</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.convenios">
+                <field name="codigo"/>
+                <field name="empresa_id"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_final"/>
+                <field name="promotor_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_convenios">
+        <field name="name">Registro Maestro de Convenios</field>
+        <field name="res_model">fnd.pas.convenios</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Registro Maestro de Convenios" id="menu_fnd_pas_convenios" parent="menu_principal_vertical" action="action_fnd_pas_convenios"/>
+
+        
+    <record model="ir.ui.view" id="view_fnd_pas_promotores_form">
+        <field name="name">fnd.pas.promotores.form</field>
+        <field name="model">fnd.pas.promotores</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.promotores">
+            <group col="4" colspan="2">
+                <field name="cedula" select="1"/>
+                <field name="nombre_promotor" select="2"/>
+                <field name="apellido_promotor" select="0"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_promotores_tree">
+        <field name="name">fnd.pas.promotores.tree</field>
+        <field name="model">fnd.pas.promotores</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.promotores">
+                <field name="cedula"/>
+                <field name="nombre_promotor"/>
+                <field name="apellido_promotor"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_promotores">
+        <field name="name">Registro Maestro de Promotores</field>
+        <field name="res_model">fnd.pas.promotores</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Registro Maestro de Promotores" id="menu_fnd_pas_promotores" parent="menu_principal_vertical" action="action_fnd_pas_promotores"/>
+
+        
+    <record model="ir.ui.view" id="view_fnd_pas_tipo_especialidades_form">
+        <field name="name">fnd.pas.tipo_especialidades.form</field>
+        <field name="model">fnd.pas.tipo_especialidades</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.tipo_especialidades">
+            <group col="4" colspan="2">
+                <field name="codigo" select="1"/>
+                <field name="tipo_especialidad" select="2"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_tipo_especialidades_tree">
+        <field name="name">fnd.pas.tipo_especialidades.tree</field>
+        <field name="model">fnd.pas.tipo_especialidades</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.tipo_especialidades">
+                <field name="codigo"/>
+                <field name="tipo_especialidad"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_tipo_especialidades">
+        <field name="name">Tipo de Especialidades</field>
+        <field name="res_model">fnd.pas.tipo_especialidades</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Tipo de Especialidades" id="menu_fnd_pas_tipo_especialidades" parent="menu_segundario_vertical" action="action_fnd_pas_tipo_especialidades"/>
+
+        
+    <record model="ir.ui.view" id="view_fnd_pas_instituciones_form">
+        <field name="name">fnd.pas.instituciones.form</field>
+        <field name="model">fnd.pas.instituciones</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.instituciones">
+            <group col="4" colspan="2">
+                <field name="rif" select="1"/>
+                <field name="razon_social" select="2"/>
+                <field name="acronimo" select="0"/>
+                <field name="nombre_institucion" select="0"/>
+                <separator string="'Direccion'" colspan="4"/>
+                <field name="direccion" colspan="4" nolabel="1" select="0"/>
+                <field name="telefono" select="0"/>
+                <field name="tipo_institucion" select="0"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_instituciones_tree">
+        <field name="name">fnd.pas.instituciones.tree</field>
+        <field name="model">fnd.pas.instituciones</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.instituciones">
+                <field name="rif"/>
+                <field name="razon_social"/>
+                <field name="acronimo"/>
+                <field name="nombre_institucion"/>
+                <field name="direccion"/>
+                <field name="telefono"/>
+                <field name="tipo_institucion"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_instituciones">
+        <field name="name">Registro Maestro de Instituciones</field>
+        <field name="res_model">fnd.pas.instituciones</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Registro Maestro de Instituciones" id="menu_fnd_pas_instituciones" parent="menu_principal_vertical" action="action_fnd_pas_instituciones"/>
+
+        
+    <record model="ir.ui.view" id="view_fnd_pas_nivel_academico_form">
+        <field name="name">fnd.pas.nivel_academico.form</field>
+        <field name="model">fnd.pas.nivel_academico</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.nivel_academico">
+            <group col="4" colspan="2">
+                <field name="codigo" select="1"/>
+                <field name="nivel_academico" select="2"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_nivel_academico_tree">
+        <field name="name">fnd.pas.nivel_academico.tree</field>
+        <field name="model">fnd.pas.nivel_academico</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.nivel_academico">
+                <field name="codigo"/>
+                <field name="nivel_academico"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_nivel_academico">
+        <field name="name">Registro de Nivel Academicos</field>
+        <field name="res_model">fnd.pas.nivel_academico</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Registro de Nivel Academicos" id="menu_fnd_pas_nivel_academico" parent="menu_segundario_vertical" action="action_fnd_pas_nivel_academico"/>
+
+        
+    <record model="ir.ui.view" id="view_fnd_pas_parentescos_form">
+        <field name="name">fnd.pas.parentescos.form</field>
+        <field name="model">fnd.pas.parentescos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.parentescos">
+            <group col="4" colspan="2">
+                <field name="codigo" select="1"/>
+                <field name="parentesco" select="2"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_parentescos_tree">
+        <field name="name">fnd.pas.parentescos.tree</field>
+        <field name="model">fnd.pas.parentescos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.parentescos">
+                <field name="codigo"/>
+                <field name="parentesco"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_parentescos">
+        <field name="name">Registro de Parentescos</field>
+        <field name="res_model">fnd.pas.parentescos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Registro de Parentescos" id="menu_fnd_pas_parentescos" parent="menu_segundario_vertical" action="action_fnd_pas_parentescos"/>
+
+        
+    <record model="ir.ui.view" id="view_fnd_pas_turnos_form">
+        <field name="name">fnd.pas.turnos.form</field>
+        <field name="model">fnd.pas.turnos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.turnos">
+            <group col="4" colspan="2">
+                <field name="codigo" select="1"/>
+                <field name="turno" select="2"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_turnos_tree">
+        <field name="name">fnd.pas.turnos.tree</field>
+        <field name="model">fnd.pas.turnos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.turnos">
+                <field name="codigo"/>
+                <field name="turno"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_turnos">
+        <field name="name">Registro de turnos</field>
+        <field name="res_model">fnd.pas.turnos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Registro de turnos" id="menu_fnd_pas_turnos" parent="menu_segundario_vertical" action="action_fnd_pas_turnos"/>
+
+        
+    <record model="ir.ui.view" id="view_fnd_pas_tipos_pasantias_form">
+        <field name="name">fnd.pas.tipos_pasantias.form</field>
+        <field name="model">fnd.pas.tipos_pasantias</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.tipos_pasantias">
+            <group col="4" colspan="2">
+                <field name="codigo" select="1"/>
+                <field name="tipo_pasantia" select="2"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_tipos_pasantias_tree">
+        <field name="name">fnd.pas.tipos_pasantias.tree</field>
+        <field name="model">fnd.pas.tipos_pasantias</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.tipos_pasantias">
+                <field name="codigo"/>
+                <field name="tipo_pasantia"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_tipos_pasantias">
+        <field name="name">Registro de Tipos de Pasantias</field>
+        <field name="res_model">fnd.pas.tipos_pasantias</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Registro de Tipos de Pasantias" id="menu_fnd_pas_tipos_pasantias" parent="menu_segundario_vertical" action="action_fnd_pas_tipos_pasantias"/>
+
+        
+    <record model="ir.ui.view" id="view_fnd_pas_pasantes_form">
+        <field name="name">fnd.pas.pasantes.form</field>
+        <field name="model">fnd.pas.pasantes</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.pasantes">
+            <group col="4" colspan="2">
+                <field name="cedula" select="1"/>
+                <field name="nombres" select="2"/>
+                <field name="apellidos" select="0"/>
+                <field name="fecha_nacimiento" select="0"/>
+                <field name="correo_electronico" select="0"/>
+                <separator string="'Direccion de Habitacion'" colspan="4"/>
+                <field name="direccion_habitacion" colspan="4" nolabel="1" select="0"/>
+                <field name="telefono" select="0"/>
+                <field name="zurdo" select="0"/>
+                <field name="alergias" select="0"/>
+                <field name="tipo_alergia" select="0"/>
+                <field name="especialidad" select="0"/>
+                <field name="nivel_educativo" select="0"/>
+                <separator string="'Pasantias'" colspan="4"/>
+                <field name="pasantias_ids" colspan="4" nolabel="1" select="0"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_pasantes_tree">
+        <field name="name">fnd.pas.pasantes.tree</field>
+        <field name="model">fnd.pas.pasantes</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.pasantes">
+                <field name="cedula"/>
+                <field name="nombres"/>
+                <field name="apellidos"/>
+                <field name="fecha_nacimiento"/>
+                <field name="correo_electronico"/>
+                <field name="direccion_habitacion"/>
+                <field name="telefono"/>
+                <field name="zurdo"/>
+                <field name="alergias"/>
+                <field name="tipo_alergia"/>
+                <field name="especialidad"/>
+                <field name="nivel_educativo"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_pasantes">
+        <field name="name">Registro Maestro de Pasantes</field>
+        <field name="res_model">fnd.pas.pasantes</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Registro Maestro de Pasantes" id="menu_fnd_pas_pasantes" parent="menu_principal_vertical" action="action_fnd_pas_pasantes"/>
+
+        
+    <record model="ir.ui.view" id="view_fnd_pas_pasantias_form">
+        <field name="name">fnd.pas.pasantias.form</field>
+        <field name="model">fnd.pas.pasantias</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.pasantias" col="1">
+             <group col="4" colspan="4">
+                <field name="pasante_id" select="1"/>
+                <notebook colspan="4">
+					<page string="Datos de la Pasantia">
+					<!-- separator string="Datos de la Pasantia" colspan="4" col="4"/ -->
+							<group colspan="7" col="4">
+							<field name="convenio_id" select="0"/>
+							<field name="empresa" select="2"/>
+							<field name="promotor" select="0"/>
+							<field name="departamento_area" select="0"/>
+							<field name="tipo_pasantia" select="0"/>
+							<field name="condicion_nofirmante" select="0"/>
+							<field name="pasantia_desde" select="0"/>
+							<field name="pasantia_hasta" select="0"/>
+							<field name="numero_semana" select="0"/>
+							<field name="turno" select="0"/>
+							<field name="fecha_recepcion" select="0"/>
+							<separator string="'Observaciones'" colspan="4"/>
+							<field name="observacion" colspan="4" nolabel="1" select="0"/>
+							</group>
+                    </page>
+                    
+                    <page string="Prorroga de la Pasantia">
+                    <!-- separator string="Prorroga de Pasantia" colspan="4" col="4"/ -->
+                            <group colspan="6" col="4">
+								<field name="prorroga_desde" select="0"/>
+								<field name="prorroga_hasta" select="0"/>
+								<field name="semana_prorroga" select="0"/>
+								<field name="turno_prorroga" select="0"/>
+								<field name="condicion_registro" select="0"/>
+								<se 																			parator string="'Observacion de prorroga'" colspan="4"/>
+								<field name="observaciones_prorroga" colspan="4" nolabel="1" select="0"/>
+
+							</group>
+					 </page>
+                </notebook>
+              </group>
+            </form>
+       </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_pasantias_tree">
+        <field name="name">fnd.pas.pasantias.tree</field>
+        <field name="model">fnd.pas.pasantias</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.pasantias">
+                <field name="pasante_id"/>
+                <field name="empresa"/>
+                <field name="convenio_id"/>
+                <field name="promotor"/>
+                <field name="departamento_area"/>
+                <field name="tipo_pasantia"/>
+                <field name="condicion_nofirmante"/>
+                <field name="pasantia_desde"/>
+                <field name="pasantia_hasta"/>
+                <field name="numero_semana"/>
+                <field name="turno"/>
+                <field name="fecha_recepcion"/>
+                <field name="prorroga_desde"/>
+                <field name="prorroga_hasta"/>
+                <field name="semana_prorroga"/>
+                <field name="turno_prorroga"/>
+                <field name="condicion_registro"/>
+                <field name="observacion"/>
+                <field name="observaciones_prorroga"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_pasantias">
+        <field name="name">Registro Maestro de Pasantias</field>
+        <field name="res_model">fnd.pas.pasantias</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Registro Maestro de Pasantias" id="menu_fnd_pas_pasantias" parent="menu_principal_vertical" action="action_fnd_pas_pasantias"/>
+
+        
+    <record model="ir.ui.view" id="view_fnd_pas_condicion_nofirmante_form">
+        <field name="name">fnd.pas.condicion_nofirmante.form</field>
+        <field name="model">fnd.pas.condicion_nofirmante</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.condicion_nofirmante">
+            <group col="4" colspan="2">
+                <field name="codigo" select="1"/>
+                <field name="condicion_nofirmante" select="2"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_condicion_nofirmante_tree">
+        <field name="name">fnd.pas.condicion_nofirmante.tree</field>
+        <field name="model">fnd.pas.condicion_nofirmante</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.condicion_nofirmante">
+                <field name="codigo"/>
+                <field name="condicion_nofirmante"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_condicion_nofirmante">
+        <field name="name">Registro de Condicion de no Firmantes</field>
+        <field name="res_model">fnd.pas.condicion_nofirmante</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Registro de Condicion de no Firmantes" id="menu_fnd_pas_condicion_nofirmante" parent="menu_segundario_vertical" action="action_fnd_pas_condicion_nofirmante"/>
+
+        
+    <record model="ir.ui.view" id="view_fnd_pas_condicion_registro_form">
+        <field name="name">fnd.pas.condicion_registro.form</field>
+        <field name="model">fnd.pas.condicion_registro</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.condicion_registro">
+            <group col="4" colspan="2">
+                <field name="codigo" select="1"/>
+                <field name="condicion_registro" select="2"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_condicion_registro_tree">
+        <field name="name">fnd.pas.condicion_registro.tree</field>
+        <field name="model">fnd.pas.condicion_registro</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.condicion_registro">
+                <field name="codigo"/>
+                <field name="condicion_registro"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_condicion_registro">
+        <field name="name">Registro de Condicion de Registro</field>
+        <field name="res_model">fnd.pas.condicion_registro</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Registro de Condicion de Registro" id="menu_fnd_pas_condicion_registro" parent="menu_segundario_vertical" action="action_fnd_pas_condicion_registro"/>
+
+        
+    <record model="ir.ui.view" id="view_fnd_pas_tipos_instituciones_form">
+        <field name="name">fnd.pas.tipos_instituciones.form</field>
+        <field name="model">fnd.pas.tipos_instituciones</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fnd.pas.tipos_instituciones">
+            <group col="4" colspan="2">
+                <field name="codigo" select="1"/>
+                <field name="tipos_instituciones" select="2"/>
+
+            </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fnd_pas_tipos_instituciones_tree">
+        <field name="name">fnd.pas.tipos_instituciones.tree</field>
+        <field name="model">fnd.pas.tipos_instituciones</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fnd.pas.tipos_instituciones">
+                <field name="codigo"/>
+                <field name="tipos_instituciones"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fnd_pas_tipos_instituciones">
+        <field name="name">Registro de Tipos de Instituciones</field>
+        <field name="res_model">fnd.pas.tipos_instituciones</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Registro de Tipos de Instituciones" id="menu_fnd_pas_tipos_instituciones" parent="menu_segundario_vertical" action="action_fnd_pas_tipos_instituciones"/>
+
+        
+</data>
+</openerp>
